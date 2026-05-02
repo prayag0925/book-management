@@ -102,16 +102,20 @@ const bookSchema = new mongoose.Schema({
 ## 📸 Screenshots
 
 ### 🏠 Home Page - All Books
-<!-- add screenshot here -->
+<img width="1920" height="871" alt="Screenshot 2026-05-02 160320" src="https://github.com/user-attachments/assets/2eaff216-3815-4b17-89ff-d72ae5b2482a" />
+
 
 ### ➕ Add Book Page
-<!-- add screenshot here -->
+<img width="1920" height="791" alt="Screenshot 2026-05-02 160307" src="https://github.com/user-attachments/assets/7607f204-e86b-4bb9-bb95-79adbdf92945" />
+
 
 ### ✏️ Edit Book Page
-<!-- add screenshot here -->
+<img width="1901" height="824" alt="Screenshot 2026-05-02 160243" src="https://github.com/user-attachments/assets/02d7a066-f31f-4678-884f-a514231634f8" />
+
 
 ### 🗄️ MongoDB Compass - Database
-<!-- add screenshot here -->
+<img width="1920" height="1009" alt="Screenshot 2026-05-01 232701" src="https://github.com/user-attachments/assets/c25063e8-fc0b-4939-9a38-377c9c12938e" />
+
 
 ---
 
