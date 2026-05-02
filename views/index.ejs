@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <h1>Book Store Management System</h1>
+        <a href="/books/add">+ Add New Book</a>
+    </nav>
+
+    <div class="container">
+
+        <div class="stats">
+            <div class="stat-card">
+                <h2>
+                    <%= totalBooks %>
+                </h2>
+                <p>Total Books</p>
+            </div>
+        </div>
+
+        <h3 style="margin: 20px 0 10px;">All Books</h3>
+
+        <% if(books.length==0){ %>
+            <p>No books found. Please add some books.</p>
+            <% } else { %>
+
+                <div class="books-grid">
+                    <% for(var i=0; i<books.length; i++){ %>
+                        <div class="book-card">
+
+                            <img src="/uploads/<%= books[i].image %>" alt="book image"
+                                onerror="this.src='https://via.placeholder.com/200x180?text=No+Image'">
+
+                            <div class="book-info">
+                                <h3>
+                                    <%= books[i].title %>
+                                </h3>
+                                <p>Author: <%= books[i].author %>
+                                </p>
+                                <p>Category: <%= books[i].category %>
+                                </p>
+                                <p>Price: ₹<%= books[i].price %>
+                                </p>
+                                <p>Quantity: <%= books[i].quantity %>
+                                </p>
+
+                                <div class="card-actions">
+                                    <a href="/books/edit/<%= books[i]._id %>" class="btn-edit">Edit</a>
+
+                                    <form action="/books/delete/<%= books[i]._id %>?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn-delete"
+                                            onclick="return confirm('Are you sure?')">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                        <% } %>
+                </div>
+
+                <% } %>
+
+    </div>
+
+</body>
+
+</html>

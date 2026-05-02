@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Book</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <h1> Book Store Management System</h1>
+        <a href="/books">View All Books</a>
+    </nav>
+
+    <div class="form-container">
+
+        <h2>Edit Book Details</h2>
+
+        <form action="/books/edit/<%= book._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label>Book Title</label>
+                <input type="text" name="title" value="<%= book.title %>" required>
+            </div>
+
+            <div class="form-group">
+                <label>Author Name</label>
+                <input type="text" name="author" value="<%= book.author %>" required>
+            </div>
+
+            <div class="form-group">
+                <label>Category</label>
+                <select name="category" required>
+                    <option value="">Select Category</option>
+                    <option value="Fiction" <%=book.category=='Fiction' ? 'selected' : '' %>>Fiction</option>
+                    <option value="Non-Fiction" <%=book.category=='Non-Fiction' ? 'selected' : '' %>>Non-Fiction
+                    </option>
+                    <option value="Finance" <%=book.category=='Finance' ? 'selected' : '' %>>Finance</option>
+                    <option value="Technology" <%=book.category=='Technology' ? 'selected' : '' %>>Technology</option>
+                    <option value="Self-Help" <%=book.category=='Self-Help' ? 'selected' : '' %>>Self-Help</option>
+                    <option value="Science" <%=book.category=='Science' ? 'selected' : '' %>>Science</option>
+                    <option value="History" <%=book.category=='History' ? 'selected' : '' %>>History</option>
+                    <option value="Biography" <%=book.category=='Biography' ? 'selected' : '' %>>Biography</option>
+                    <option value="Education" <%=book.category=='Education' ? 'selected' : '' %>>Education</option>
+                    <option value="Other" <%=book.category=='Other' ? 'selected' : '' %>>Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Price (₹)</label>
+                <input type="number" name="price" value="<%= book.price %>" required>
+            </div>
+
+            <div class="form-group">
+                <label>Quantity</label>
+                <input type="number" name="quantity" value="<%= book.quantity %>" required>
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <textarea name="description"><%= book.description %></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Change Image (optional)</label>
+                <% if(book.image !='noimage.png' ){ %>
+                    <br>
+                    <img src="/uploads/<%= book.image %>"
+                        style="width:80px; height:80px; margin:8px 0; border-radius:5px;">
+                    <br>
+                    <% } %>
+                        <input type="file" name="image" accept="image/*">
+            </div>
+
+            <button type="submit" class="btn-submit">Update Book</button>
+
+        </form>
+
+        <br>
+        <a href="/books">Back to Books List</a>
+
+    </div>
+
+</body>
+
+</html>
